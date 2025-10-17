@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maaf ya beb</title>
+    <link rel="stylesheet" href="./src/output.css">
+</head>
+<body>
+    <div class="p-5">
+        <h1 class="font-bold text-[50px]">Hai cantik!</h1>
+        <img src="./insomnia.gif" alt="">
+        <h1 class="text-[30px] font-bold">Masih marah nda?</h1>
+        <div class="flex gap-5">
+            <button id="yes" class="bg-gray-200 p-2 outline-1 hover:bg-gray-400" onclick="handleYes()">Yes</button>
+            <button id="no" class="bg-gray-200 p-2 outline-1 hover:bg-gray-400" onclick="handleNo()">No</button>
+        </div>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById("no");
+        const yesBtn = document.getElementById("yes");
+
+        function handleYes() {
+            var name = prompt("Siapa nama khe?");
+
+            if (name != "" || name != null) {
+                alert("Hi " + name + ", maaf yaa, aku bener-bener nyesel, aku tau kalo aku salah ga tepatin janji. aku harap kalo kamu maafin aku")
+            }
+        }
+        
+        function handleNo() {
+            // Bikin tombol jadi bisa dipindah
+            noBtn.style.position = "absolute";
+
+            // Random posisi dalam jendela browser
+            const maxX = window.innerWidth - noBtn.offsetWidth;
+            const maxY = window.innerHeight - noBtn.offsetHeight;
+
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            // Pindahin tombol ke posisi baru
+            noBtn.style.left = randomX + "px";
+            noBtn.style.top = randomY + "px";
+        }
+    </script>
+</body>
+</html>
